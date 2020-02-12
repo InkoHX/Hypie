@@ -1,13 +1,14 @@
-import { Client, Message } from 'discord.js'
+import 'reflect-metadata'
 
-const client = new Client()
+import Client from './Client'
 
-function replyAvatarURL(message: Message): void {
-  if (message.content === '私のアバター') {
-    message.reply(message.author.avatarURL)
-  }
-}
+const bot = new Client()
 
-client.on('message', message => replyAvatarURL(message))
+// eslint-disable-next-line @typescript-eslint/no-misused-promises
+bot.on('message', async message => {
+  console.log(await message.member?.getSettings() || 'No guild member.')
+  console.log(await message.author?.getSettings() || 'No author.')
+  console.log(await message.guild?.getSettings() || 'No guild.')
+})
 
-client.login()
+bot.login()

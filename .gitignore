@@ -62,3 +62,6 @@ typings/
 
 # output
 dist/
+
+# db
+*.sqlite3
