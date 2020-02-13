@@ -1,4 +1,4 @@
-import './extension/index'
+import './extensions/index'
 
 import { Client } from 'discord.js'
 import { createConnection, Connection } from 'typeorm'
@@ -6,7 +6,8 @@ import path from 'path'
 
 export default class extends Client {
   public async login (token?: string): Promise<string> {
-    await this.connectDatabase().catch(console.error)
+    await this.connectDatabase()
+      .catch(console.error)
 
     return super.login(token)
   }
