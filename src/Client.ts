@@ -20,7 +20,7 @@ export default class extends Client {
         path.join(__dirname, 'entities', '*.{js,ts}')
       ],
       migrations: [
-        path.join(__dirname, 'migrations', '*.ts{js,ts}')
+        path.join(__dirname, 'migrations', '*.{js,ts}')
       ]
     })
   }
