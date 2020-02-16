@@ -9,8 +9,7 @@
     "compile": "tsc -p .",
     "compile:test": "tsc -p . --noEmit",
     "lint": "eslint --ext .ts .",
-    "lint:fix": "eslint --ext .ts . --fix",
-    "test": "npm run lint && npm run compile:test"
+    "lint:fix": "eslint --ext .ts . --fix"
   },
   "dependencies": {
     "discord.js": "github:discordjs/discord.js",
