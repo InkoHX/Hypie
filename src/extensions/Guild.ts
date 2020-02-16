@@ -10,6 +10,8 @@ declare module 'discord.js' {
 export default Structures.extend('Guild', BaseClass => {
   return class extends BaseClass {
     public async getSettings (): Promise<GuildSettings> {
+      if (!this.available || typeof this.id !== 'string') throw new Error('Guild id is unknown.')
+
       const settings = await GuildSettings.findOne({ id: this.id })
 
       if (!settings) return new GuildSettings(this)

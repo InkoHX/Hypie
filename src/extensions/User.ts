@@ -10,6 +10,8 @@ declare module 'discord.js' {
 export default Structures.extend('User', BaseClass => {
   return class extends BaseClass {
     public async getSettings (): Promise<UserSettings> {
+      if (typeof this.id !== 'string') throw new Error('User id is unknown.')
+
       const settings = await UserSettings.findOne({ id: this.id })
 
       if (!settings) return new UserSettings(this)
