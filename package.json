@@ -2,6 +2,7 @@
   "name": "discordjs-with-typeorm",
   "version": "0.0.1",
   "description": "Discord.js with TypeORM",
+  "license": "MIT",
   "scripts": {
     "start": "node ./dist/index.js",
     "start:dev": "ts-node ./src/index.ts",
