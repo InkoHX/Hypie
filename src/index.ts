@@ -1,6 +1,6 @@
 import 'reflect-metadata'
 
-import Client from './lib/Client'
+import Client from './Client'
 
 const bot = new Client()
 
