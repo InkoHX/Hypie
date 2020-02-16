@@ -11,4 +11,4 @@ bot.on('message', async message => {
   console.log(await message.guild?.getSettings() || 'No guild.')
 })
 
-bot.login()
+bot.login().catch(console.error)

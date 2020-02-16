@@ -1,9 +1,9 @@
-import { Structures } from "discord.js";
-import { UserSettings } from "../entities/UserSettings";
+import { Structures } from 'discord.js'
+import { UserSettings } from '../entities/UserSettings'
 
 declare module 'discord.js' {
   interface User {
-    getSettings(): Promise<UserSettings>;
+    getSettings(): Promise<UserSettings>
   }
 }
 

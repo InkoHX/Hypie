@@ -1,9 +1,9 @@
-import { Structures } from "discord.js";
-import { GuildSettings } from "../entities/GuildSettings";
+import { Structures } from 'discord.js'
+import { GuildSettings } from '../entities/GuildSettings'
 
 declare module 'discord.js' {
   interface Guild {
-    getSettings(): Promise<GuildSettings>;
+    getSettings(): Promise<GuildSettings>
   }
 }
 
