@@ -1,7 +1,7 @@
 import './extensions/index'
 
 import { Client } from 'discord.js'
-import { createConnection, Connection } from 'typeorm'
+import { createConnection, Connection, getConnectionOptions } from 'typeorm'
 import path from 'path'
 
 export default class extends Client {
@@ -12,16 +12,17 @@ export default class extends Client {
     return super.login(token)
   }
 
-  private connectDatabase (): Promise<Connection> {
-    return createConnection({
-      type: 'sqlite',
-      database: path.join(process.cwd(), 'db.sqlite3'),
+  private async connectDatabase (): Promise<Connection> {
+    const target = await getConnectionOptions()
+    const source = {
       entities: [
         path.join(__dirname, 'entities', '*.{js,ts}')
       ],
       migrations: [
         path.join(__dirname, 'migrations', '*.{js,ts}')
       ]
-    })
+    }
+
+    return createConnection(Object.assign(target, source))
   }
 }
