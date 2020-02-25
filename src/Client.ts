@@ -1,11 +1,44 @@
-import { Client as DjsClient } from 'discord.js'
+import { Client as DjsClient, ClientOptions } from 'discord.js'
+import { Logger } from 'parrot-logger'
 import path from 'path'
 import { Connection, createConnection, getConnectionOptions } from 'typeorm'
 
+import { CommandRegistry, EventRegistry } from './registries'
+
 export class Client extends DjsClient {
+  public readonly events: EventRegistry
+
+  public readonly commands: CommandRegistry
+
+  public readonly path: string
+
+  public readonly prefix: string
+
+  public readonly logger: Logger
+
+  public constructor (options?: ClientOptions) {
+    super(options)
+
+    this.events = new EventRegistry(this)
+
+    this.commands = new CommandRegistry(this)
+
+    this.path = require.main?.filename
+      ? path.dirname(require.main.filename)
+      : process.cwd()
+
+    this.prefix = '!!'
+
+    this.logger = new Logger()
+  }
+
   public async login (token?: string): Promise<string> {
-    await this.connectDatabase()
-      .catch(console.error)
+    await Promise.all([
+      this.connectDatabase(),
+      this.events.registerAll(),
+      this.commands.registerAll()
+    ])
+      .catch(error => this.logger.error(error))
 
     return super.login(token)
   }

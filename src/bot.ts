@@ -2,4 +2,5 @@ import { Client } from '.'
 
 const bot = new Client()
 
-bot.login().catch(console.error)
+bot.login()
+  .catch(error => bot.logger.error(error))
