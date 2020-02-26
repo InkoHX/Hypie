@@ -45,7 +45,10 @@ export class Registry<K, V> extends Collection<K, V> {
   }
 
   protected scanFiles (pattern: string): Promise<string[]> {
-    return globAsync(pattern, { cwd: this.client.path, absolute: true })
+    return globAsync(pattern, {
+      cwd: this.client.path,
+      absolute: true
+    })
   }
 
   protected async loadModule (absolutePath: string): Promise<unknown> {
