@@ -1,7 +1,5 @@
+import { Client, Command, Event } from '@lib'
 import { DMChannel, Message, PermissionString, TextChannel } from 'discord.js'
-
-import { Client, Event } from '..'
-import { Command } from '../structures'
 
 const missingMessage = (permissions: PermissionString[]): string => {
   return [

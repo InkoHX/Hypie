@@ -1,4 +1,4 @@
-import { Client, Event } from '..'
+import { Client, Event } from '@lib'
 
 export default class extends Event {
   public constructor (client: Client) {

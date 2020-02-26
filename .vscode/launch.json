@@ -8,12 +8,15 @@
       "sourceMaps": true,
       "protocol": "inspector",
       "envFile": "${workspaceFolder}/.env",
+      "cwd": "${workspaceFolder}",
       "args": [
         "${workspaceFolder}/src/bot.ts"
       ],
       "runtimeArgs": [
         "-r",
-        "ts-node/register"
+        "ts-node/register",
+        "-r",
+        "tsconfig-paths/register"
       ],
     },
     {
@@ -25,6 +28,11 @@
       "preLaunchTask": "TypeScript: Compile",
       "envFile": "${workspaceFolder}/.env",
       "program": "${workspaceFolder}/dist/bot.js",
+      "cwd": "${workspaceFolder}",
+      "runtimeArgs": [
+        "-r",
+        "tsconfig-paths/register"
+      ],
       "outFiles": [
         "${workspaceFolder}/dist/**/*.js"
       ]

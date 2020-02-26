@@ -1,4 +1,4 @@
-import { Client } from '.'
+import { Client } from '@lib'
 
 const bot = new Client()
 

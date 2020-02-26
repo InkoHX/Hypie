@@ -3,9 +3,10 @@
   "version": "0.0.1",
   "description": "Discord.js with TypeORM",
   "license": "MIT",
+  "main": "./",
   "scripts": {
-    "start": "node -r dotenv-safe/config ./dist/bot.js",
-    "start:dev": "ts-node -r dotenv-safe/config ./src/bot.ts",
+    "start": "node -r dotenv-safe/config -r tsconfig-paths/register ./dist/bot.js",
+    "start:dev": "ts-node -r dotenv-safe/config -r tsconfig-paths/register ./src/bot.ts",
     "compile": "tsc -p .",
     "compile:test": "tsc -p . --noEmit",
     "lint": "eslint --ext .ts .",
@@ -18,6 +19,7 @@
     "parrot-logger": "^0.0.3",
     "reflect-metadata": "^0.1.13",
     "sqlite3": "^4.1.1",
+    "tsconfig-paths": "^3.9.0",
     "typeorm": "^0.2.22"
   },
   "devDependencies": {
