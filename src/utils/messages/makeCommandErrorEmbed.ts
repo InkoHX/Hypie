@@ -5,7 +5,15 @@ export function makeCommandErrorEmbed (command: Command, error: Error): MessageE
   return new MessageEmbed()
     .setColor('RED')
     .setTitle(`${command.name}コマンドを実行中にエラーが発生しました。`)
-    .addField('エラーネーム', error.name)
-    .addField('エラーメッセージ', error.message)
+    .addFields([
+      {
+        name: 'エラーネーム',
+        value: error.name
+      },
+      {
+        name: 'エラーメッセージ',
+        value: error.message
+      }
+    ])
     .setTimestamp()
 }
