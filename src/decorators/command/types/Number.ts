@@ -1,6 +1,6 @@
-import { TypeFunction } from '.'
+import { ResolveFunction } from '.'
 
-const toNumber: TypeFunction = (data: unknown, paramIndex: number): number => {
+const toNumber: ResolveFunction = (data: unknown, paramIndex: number): number => {
   if (typeof data !== 'string') throw new Error(`第${paramIndex}引数はデータが文字列ではありません。`)
   const number = parseInt(data)
 

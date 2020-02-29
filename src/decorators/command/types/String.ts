@@ -1,5 +1,5 @@
-import { TypeFunction } from '.'
+import { ResolveFunction } from '.'
 
-const toString: TypeFunction = (data: unknown): string => String(data)
+const toString: ResolveFunction = (data: unknown): string => String(data)
 
 export default toString

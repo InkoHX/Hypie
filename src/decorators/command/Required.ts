@@ -2,11 +2,11 @@ import { Command } from '@lib'
 
 import { MetaKeys } from '..'
 import { ParameterMetadata } from './Arguments'
-import { Types } from './types'
+import { ResolveType } from './types'
 
 export type RequiredMetadata = ParameterMetadata
 
-export function Required (type: Types = 'string'): Function {
+export function Required (type: ResolveType): Function {
   return (target: Command, propKey: string, paramIndex: number): void => {
     const indexArray: RequiredMetadata[] = Reflect.getOwnMetadata(MetaKeys.COMMAND_RUN_PARAMS, target, propKey) ?? []
     indexArray.push({

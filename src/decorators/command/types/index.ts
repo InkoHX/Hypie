@@ -1,12 +1,12 @@
 import toNumber from './Number'
 import toString from './String'
 
-export type TypeFunction = (data: unknown, paramIndex: number) => unknown
+export type ResolveFunction = (data: unknown, paramIndex: number) => unknown
 
-export type Types = 'string' |
+export type ResolveType = 'string' |
 'number'
 
-const resolvers: Record<Types, TypeFunction> = {
+const resolvers: Record<ResolveType, ResolveFunction> = {
   string: toString,
   number: toNumber
 }
