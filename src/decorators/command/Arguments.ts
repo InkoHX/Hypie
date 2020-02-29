@@ -1,6 +1,7 @@
 import { Command, Events } from '@lib'
-import { MetaKeys } from '..'
 import { Message } from 'discord.js'
+
+import { MetaKeys } from '..'
 import resolvers, { ResolveType } from './types'
 
 export type ParameterType = 'required' | 'optional'
@@ -38,7 +39,6 @@ export function Arguments (target: Command, propKey: string, desc: PropertyDescr
             args[index] = resolvers[type](arg, index)
         }
       })
-      console.log(args)
 
       return Reflect.apply(init, null, args)
     } catch (error) {
