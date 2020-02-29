@@ -1,4 +1,4 @@
-import { Command } from 'src/structures'
+import { Command } from '@lib'
 
 import { MetaKeys } from '../MetaKeys'
 import { ParameterMetadata } from './Arguments'
