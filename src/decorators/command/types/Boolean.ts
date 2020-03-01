@@ -1,6 +1,6 @@
-import { ResolveFunction } from '.'
+import { ResolverFunction } from '.'
 
-const toBoolean: ResolveFunction = (data: unknown, paramIndex: number): boolean => {
+const toBoolean: ResolverFunction = (data: unknown, paramIndex: number): boolean => {
   const str = String(data).toLowerCase()
 
   if (str === 'true') return true
