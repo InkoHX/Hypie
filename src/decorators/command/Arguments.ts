@@ -1,4 +1,4 @@
-import { Command, Events } from '@lib'
+import { Events } from '@lib'
 import { Message } from 'discord.js'
 
 import { MetaKeys } from '..'
@@ -12,7 +12,8 @@ export interface ParameterMetadata {
   readonly type: ArgumentType
 }
 
-export function Arguments (target: Command, propKey: string, desc: PropertyDescriptor): void {
+// eslint-disable-next-line @typescript-eslint/ban-types
+export function Arguments (target: Object, propKey: string, desc: PropertyDescriptor): void {
   const init = desc.value
 
   desc.value = (...args: unknown[]): void => {
