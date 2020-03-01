@@ -45,7 +45,7 @@ export function Arguments (target: Command, propKey: string, desc: PropertyDescr
       const message = args[0]
       if (!(message instanceof Message)) throw error
       
-      message.client.emit(Events.COMMAND_MISSING_ARGS, args[0], error)
+      message.client.emit(Events.COMMAND_MISSING_ARGS, message, error)
     }
   }
 }
