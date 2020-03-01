@@ -1,5 +1,5 @@
-import { ResolverFunction } from '.'
+import { ArgumentResolverFunction } from '.'
 
-const toString: ResolverFunction = (data: unknown): string => String(data)
+const toString: ArgumentResolverFunction = (data: unknown): string => String(data)
 
 export default toString

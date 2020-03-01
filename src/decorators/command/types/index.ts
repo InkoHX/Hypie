@@ -2,13 +2,13 @@ import toBoolean from './Boolean'
 import toNumber from './Number'
 import toString from './String'
 
-export type ResolverFunction = (data: unknown, paramIndex: number) => unknown
+export type ArgumentResolverFunction = (data: unknown, paramIndex: number) => unknown
 
-export type ResolveType = 'string' |
+export type ArgumentType = 'string' |
 'number' |
 'boolean'
 
-const resolvers: Record<ResolveType, ResolverFunction> = {
+const resolvers: Record<ArgumentType, ArgumentResolverFunction> = {
   string: toString,
   number: toNumber,
   boolean: toBoolean

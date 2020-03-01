@@ -2,14 +2,14 @@ import { Command, Events } from '@lib'
 import { Message } from 'discord.js'
 
 import { MetaKeys } from '..'
-import resolvers, { ResolveType } from './types'
+import resolvers, { ArgumentType } from './types'
 
 export type ParameterMode = 'required' | 'optional'
 
 export interface ParameterMetadata {
   readonly mode: ParameterMode,
   readonly index: number,
-  readonly type: ResolveType
+  readonly type: ArgumentType
 }
 
 export function Arguments (target: Command, propKey: string, desc: PropertyDescriptor): void {
