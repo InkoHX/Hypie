@@ -1,15 +1,13 @@
-import { Client, Command, Event } from '@lib'
+import { Client, Command, Event, Events } from '@lib'
 import { DMChannel, Message, PermissionString, TextChannel } from 'discord.js'
 
-const missingMessage = (permissions: PermissionString[]): string => {
-  return [
-    'このコマンドを実行するには下記の権限が必要です。',
-    '',
-    '```',
-    permissions.join(', '),
-    '```'
-  ].join('\n')
-}
+const missingMessage = (permissions: PermissionString[]): string => [
+  'このコマンドを実行するには下記の権限が必要です。',
+  '',
+  '```',
+  permissions.join(', '),
+  '```'
+].join('\n')
 
 export default class CommandHandler extends Event {
   public constructor (client: Client) {
@@ -34,8 +32,12 @@ export default class CommandHandler extends Event {
     if (this.isNotAllowChannel(channel, command)) return
     if (this.isMissingPermission(channel, command)) return
 
-    command.run(message, ...args.slice(1))
-      .catch((error) => this.client.logger.error(error))
+    try {
+      // eslint-disable-next-line @typescript-eslint/no-floating-promises
+      command.run(message, ...args.slice(1))
+    } catch (error) {
+      this.client.emit(Events.COMMAND_ERROR, message, command, error)
+    }
   }
 
   private isNotAllowChannel (channel: TextChannel | DMChannel, command: Command): boolean {

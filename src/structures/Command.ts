@@ -27,5 +27,5 @@ export abstract class Command extends Structure {
     this.requiredPermission = new Permissions(options?.requiredPermissions)
   }
 
-  public abstract run (message: Message, ...args: string[]): Promise<Message | Message[]>
+  public abstract run (message: Message, ...args: unknown[]): Promise<Message | Message[]>
 }
