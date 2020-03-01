@@ -4,10 +4,10 @@ import { Message } from 'discord.js'
 import { MetaKeys } from '..'
 import resolvers, { ResolveType } from './types'
 
-export type ParameterType = 'required' | 'optional'
+export type ParameterMode = 'required' | 'optional'
 
 export interface ParameterMetadata {
-  readonly mode: ParameterType,
+  readonly mode: ParameterMode,
   readonly index: number,
   readonly type: ResolveType
 }
