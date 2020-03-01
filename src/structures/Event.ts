@@ -1,14 +1,15 @@
 import { EventEmitter } from 'events'
 
-import { Client } from '..'
-import Structure from './Structure'
+import { Client, Structure } from '..'
 
-export type EventOptions = Readonly<{
+export interface BaseEventOptions {
   name: string,
   eventName: string,
   emitter?: EventEmitter,
   once?: boolean
-}>
+}
+
+export type EventOptions = Readonly<BaseEventOptions>
 
 export abstract class Event extends Structure {
   public readonly name: string
