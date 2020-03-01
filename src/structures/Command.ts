@@ -1,14 +1,15 @@
 import { Message, Permissions, PermissionString } from 'discord.js'
 
-import { Client } from '..'
-import Structure from './Structure'
+import { Client, Structure } from '..'
 
 export type FilterType = 'textOnly' | 'dmOnly'
 
-export interface CommandOptions {
+interface BaseCommandOptions {
   filter: FilterType,
   requiredPermissions: PermissionString[]
 }
+
+export type CommandOptions = Readonly<BaseCommandOptions>
 
 export abstract class Command extends Structure {
   public readonly name: string
