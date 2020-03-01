@@ -1,6 +1,6 @@
 import { Structures } from 'discord.js'
 
-import { GuildSettings } from '../entities/GuildSettings'
+import { GuildSettings } from '..'
 
 declare module 'discord.js' {
   interface Guild {
@@ -16,7 +16,7 @@ export default Structures.extend('Guild', BaseClass => {
       const settings = await GuildSettings.findOne({ id: this.id })
 
       if (!settings) return new GuildSettings(this)
-      
+
       return settings
     }
   }

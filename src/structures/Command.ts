@@ -1,10 +1,11 @@
 import { Message, Permissions, PermissionString } from 'discord.js'
 
-import { Client, Structure } from '..'
+import { Client } from '..'
+import Structure from './Structure'
 
 export type FilterType = 'textOnly' | 'dmOnly'
 
-interface BaseCommandOptions {
+export interface BaseCommandOptions {
   filter: FilterType,
   requiredPermissions: PermissionString[]
 }

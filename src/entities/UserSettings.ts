@@ -1,11 +1,15 @@
 /* eslint-disable new-cap */
 import { User } from 'discord.js'
-import { BaseEntity, Entity, PrimaryColumn } from 'typeorm'
+import { BaseEntity, Column, Entity, PrimaryColumn } from 'typeorm'
 
 @Entity()
 export class UserSettings extends BaseEntity {
   @PrimaryColumn()
   public id!: string
+
+  // eslint-disable-next-line @typescript-eslint/no-inferrable-types
+  @Column()
+  public langCode: string = 'ja-JP'
 
   public constructor (user?: User) {
     super()

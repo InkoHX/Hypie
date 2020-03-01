@@ -1,20 +1,5 @@
 import { Client, Command, Event, Events } from '@lib'
-import { Message, MessageEmbed } from 'discord.js'
-
-const makeEmbed = (command: Command, error: Error): MessageEmbed => new MessageEmbed()
-  .setColor('RED')
-  .setTitle(`${command.name}コマンドを実行中にエラーが発生しました。`)
-  .addFields([
-    {
-      name: 'エラーネーム',
-      value: error.name
-    },
-    {
-      name: 'エラーメッセージ',
-      value: error.message
-    }
-  ])
-  .setTimestamp()
+import { Message } from 'discord.js'
 
 export default class CommandError extends Event {
   public constructor (client: Client) {
@@ -24,10 +9,12 @@ export default class CommandError extends Event {
     })
   }
 
-  public run (message: Message, command: Command, error: Error): void {
+  public async run (message: Message, command: Command, error: Error): Promise<void> {
     this.client.logger.error(error)
 
-    message.channel.send(makeEmbed(command, error))
+    const language = await message.getLanguageData()
+
+    message.channel.send(language.error.command.errorEmbed(command, error))
       .catch(error => this.client.logger.error(error))
   }
 }
