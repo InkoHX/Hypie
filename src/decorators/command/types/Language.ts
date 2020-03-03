@@ -1,5 +1,5 @@
 import { ArgumentResolverFunction } from '.'
-import { Language } from '@lib'
+import { Language } from '../../..'
 
 const toLanguage: ArgumentResolverFunction = (data, paramIndex, language, message): Language => {
   const client = message.client

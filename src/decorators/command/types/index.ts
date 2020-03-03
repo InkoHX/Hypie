@@ -1,5 +1,5 @@
 import { Message } from 'discord.js'
-import { BaseLanguageData } from '@lib'
+import { BaseLanguageData } from '../../..'
 
 import toBoolean from './Boolean'
 import toNumber from './Number'

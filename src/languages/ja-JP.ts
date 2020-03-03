@@ -1,4 +1,4 @@
-import { Language, Client, Command } from '@lib'
+import { Language, Client, Command } from '..'
 import { MessageEmbed } from 'discord.js'
 
 export default class extends Language {

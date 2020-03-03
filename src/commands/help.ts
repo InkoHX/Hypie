@@ -1,5 +1,5 @@
 /* eslint-disable new-cap */
-import { Command, Client } from '@lib'
+import { Command, Client } from '..'
 import { Message } from 'discord.js'
 
 export default class HelpCommand extends Command {

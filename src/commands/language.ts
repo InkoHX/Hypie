@@ -1,5 +1,5 @@
 /* eslint-disable new-cap */
-import { Arguments, Client, Command, Required } from '@lib'
+import { Arguments, Client, Command, Required } from '..'
 import { Message } from 'discord.js'
 import { Language } from 'src/structures'
 

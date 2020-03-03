@@ -1,4 +1,4 @@
-import { Client, Command, Event, Events } from '@lib'
+import { Client, Command, Event, Events } from '../..'
 import { Message } from 'discord.js'
 
 export default class CommandError extends Event {

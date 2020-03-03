@@ -1,7 +1,7 @@
-import { Events } from '@lib'
 import { Message } from 'discord.js'
 
 import { MetaKeys } from '..'
+import { Events } from '../..'
 import resolvers, { ArgumentType } from './types'
 
 export type ParameterMode = 'required' | 'optional'
