@@ -1,7 +1,7 @@
 /* eslint-disable new-cap */
-import { Arguments, Client, Command, Required } from '@lib'
 import { Message } from 'discord.js'
-import { Language } from 'src/structures'
+
+import { Arguments, Client, Command, Language, Required } from '..'
 
 export default class extends Command {
   public constructor (client: Client) {

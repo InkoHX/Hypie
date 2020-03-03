@@ -1,4 +1,4 @@
-import { Language, Client } from '@lib'
+import { Client, Language } from '..'
 
 export default class extends Language {
   public constructor (client: Client) {

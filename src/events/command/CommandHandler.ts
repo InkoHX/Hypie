@@ -1,5 +1,6 @@
-import { Client, Command, Event, Events } from '@lib'
 import { DMChannel, Message, PermissionString, TextChannel } from 'discord.js'
+
+import { Client, Command, Event, Events } from '../..'
 
 const missingMessage = (permissions: PermissionString[]): string => [
   'このコマンドを実行するには下記の権限が必要です。',

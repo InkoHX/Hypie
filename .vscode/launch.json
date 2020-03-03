@@ -14,9 +14,7 @@
       ],
       "runtimeArgs": [
         "-r",
-        "ts-node/register",
-        "-r",
-        "tsconfig-paths/register"
+        "ts-node/register"
       ],
     },
     {
@@ -29,10 +27,6 @@
       "envFile": "${workspaceFolder}/.env",
       "program": "${workspaceFolder}/dist/bot.js",
       "cwd": "${workspaceFolder}",
-      "runtimeArgs": [
-        "-r",
-        "tsconfig-paths/register"
-      ],
       "outFiles": [
         "${workspaceFolder}/dist/**/*.js"
       ]
