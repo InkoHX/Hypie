@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "description": "Discord.js with TypeORM",
   "license": "MIT",
-  "main": "./",
+  "main": "./dist/bot.js",
   "scripts": {
     "start": "node -r dotenv-safe/config ./dist/bot.js",
     "start:dev": "ts-node -r dotenv-safe/config ./src/bot.ts",
