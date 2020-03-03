@@ -1,8 +1,7 @@
 import { ArgumentResolverFunction } from '.'
-import { BaseLanguageData, Language } from '@lib'
-import { Message } from 'discord.js'
+import { Language } from '@lib'
 
-const toLanguage: ArgumentResolverFunction = (data: unknown, paramIndex: number, language: BaseLanguageData, message: Message): Language => {
+const toLanguage: ArgumentResolverFunction = (data, paramIndex, language, message): Language => {
   const client = message.client
   const str = String(data)
   const langObj = client.languages.get(str)

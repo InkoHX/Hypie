@@ -1,8 +1,6 @@
-import { BaseLanguageData } from '@lib'
-
 import { ArgumentResolverFunction } from '.'
 
-const toBoolean: ArgumentResolverFunction = (data: unknown, paramIndex: number, language: BaseLanguageData): boolean => {
+const toBoolean: ArgumentResolverFunction = (data, paramIndex, language): boolean => {
   const str = String(data).toLowerCase()
 
   if (str === 'true') return true
