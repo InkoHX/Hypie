@@ -1,4 +1,4 @@
-import { Language, Client } from '@lib'
+import { Language, Client, Command } from '@lib'
 import { MessageEmbed } from 'discord.js'
 
 export default class extends Language {
@@ -13,20 +13,12 @@ export default class extends Language {
       },
       error: {
         command: {
-          errorEmbed: (command, error): MessageEmbed => {
+          errorEmbed: (command: Command, error: Error): MessageEmbed => {
             return new MessageEmbed()
               .setColor('RED')
               .setTitle(`${command.name}コマンドを実行中にエラーが発生しました。`)
-              .addFields([
-                {
-                  name: 'エラーネーム',
-                  value: error.name
-                },
-                {
-                  name: 'エラーメッセージ',
-                  value: error.message
-                }
-              ])
+              .addField('エラーネーム', error.name)
+              .addField('エラーメッセージ', error.message)
               .setTimestamp()
           },
           missingArguments: (paramIndex): string => `第${paramIndex}引数が不足しています。`
