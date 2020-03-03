@@ -1,5 +1,6 @@
-import { Language, Client, Command } from '..'
 import { MessageEmbed } from 'discord.js'
+
+import { Client, Command, Language } from '..'
 
 export default class extends Language {
   public constructor (client: Client) {

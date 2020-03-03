@@ -1,5 +1,5 @@
+import { ArgumentType, ParameterMetadata } from '.'
 import { MetaKeys } from '../MetaKeys'
-import { ParameterMetadata, ArgumentType } from '.'
 
 export type OptionalMetadata = ParameterMetadata
 

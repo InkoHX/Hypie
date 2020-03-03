@@ -1,5 +1,5 @@
 import { ParameterMetadata } from '.'
-import { MetaKeys, ArgumentType } from '..'
+import { ArgumentType, MetaKeys } from '..'
 
 export type RequiredMetadata = ParameterMetadata
 

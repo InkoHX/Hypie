@@ -1,5 +1,6 @@
-import { Client, Command, Event, Events } from '../..'
 import { Message } from 'discord.js'
+
+import { Client, Command, Event, Events } from '../..'
 
 export default class CommandError extends Event {
   public constructor (client: Client) {
