@@ -1,4 +1,18 @@
 {
   "typescript.tsdk": "node_modules\\typescript\\lib",
-  "files.eol": "\n"
+  "files.eol": "\n",
+  "typescriptHero.imports.organizeOnSave": true,
+  "cSpell.words": [
+    "ESNEXT",
+    "codestyle",
+    "deepmerge",
+    "discordjs",
+    "downlevel",
+    "inkohx",
+    "promisify",
+    "sourcemap",
+    "tslib",
+    "typechecking",
+    "typeorm"
+  ]
 }
