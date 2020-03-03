@@ -19,7 +19,6 @@
     "parrot-logger": "^0.0.3",
     "reflect-metadata": "^0.1.13",
     "sqlite3": "^4.1.1",
-    "tsconfig-paths": "^3.9.0",
     "typeorm": "^0.2.24",
     "utility-types": "^3.10.0"
   },
