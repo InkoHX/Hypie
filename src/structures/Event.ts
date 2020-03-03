@@ -1,6 +1,7 @@
 import { EventEmitter } from 'events'
 
-import { Client, Structure } from '..'
+import { Client } from '..'
+import Structure from './Structure'
 
 export interface BaseEventOptions {
   name: string,
@@ -36,5 +37,5 @@ export abstract class Event extends Structure {
     this._bindRun = this.run.bind(this)
   }
 
-  public abstract run (...args: unknown[]): void
+  public abstract run (...args: unknown[]): void | Promise<void>
 }

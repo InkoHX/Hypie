@@ -1,6 +1,6 @@
 import { Structures } from 'discord.js'
 
-import { MemberSettings } from '../entities/MemberSettings'
+import { MemberSettings } from '..'
 
 declare module 'discord.js' {
   interface GuildMember {

@@ -1,6 +1,6 @@
 import { Structures } from 'discord.js'
 
-import { UserSettings } from '../entities/UserSettings'
+import { UserSettings } from '..'
 
 declare module 'discord.js' {
   interface User {

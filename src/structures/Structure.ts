@@ -1,6 +1,6 @@
 import { Client } from '..'
 
-export class Structure {
+export default class Structure {
   public readonly client: Client
 
   public constructor (client: Client) {

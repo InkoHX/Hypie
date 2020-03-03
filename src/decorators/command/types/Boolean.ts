@@ -1,12 +1,12 @@
 import { ArgumentResolverFunction } from '.'
 
-const toBoolean: ArgumentResolverFunction = (data: unknown, paramIndex: number): boolean => {
+const toBoolean: ArgumentResolverFunction = (data, paramIndex, language): boolean => {
   const str = String(data).toLowerCase()
 
   if (str === 'true') return true
   if (str === 'false') return false
 
-  throw new Error(`第${paramIndex}引数は"true"または"false"を指定する必要があります。`)
+  throw new Error(language.error.resolver.boolean(paramIndex))
 }
 
 export default toBoolean
