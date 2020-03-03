@@ -1,5 +1,5 @@
-import { Language } from '../structures'
-import { RegisterData, Registry } from './Registry'
+import { Language, RegisterData } from '..'
+import { Registry } from './Registry'
 
 
 export class LanguageRegistry extends Registry<string, Language> {
