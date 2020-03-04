@@ -1,7 +1,6 @@
 {
   "typescript.tsdk": "node_modules\\typescript\\lib",
   "files.eol": "\n",
-  "typescriptHero.imports.organizeOnSave": true,
   "cSpell.words": [
     "ESNEXT",
     "codestyle",
