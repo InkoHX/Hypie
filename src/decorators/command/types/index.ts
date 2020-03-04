@@ -1,12 +1,12 @@
 import { Message } from 'discord.js'
 
-import { BaseLanguageData } from '../../..'
+import { LanguageData } from '../../..'
 import toBoolean from './Boolean'
 import toLanguage from './Language'
 import toNumber from './Number'
 import toString from './String'
 
-export type ArgumentResolverFunction = (data: unknown, paramIndex: number, language: BaseLanguageData, message: Message) => unknown
+export type ArgumentResolverFunction = (data: unknown, paramIndex: number, language: LanguageData, message: Message) => unknown
 
 export type ArgumentType = 'string' |
 'number' |
