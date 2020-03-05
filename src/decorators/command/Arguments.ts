@@ -13,15 +13,17 @@ export interface ParameterMetadata {
 }
 
 // eslint-disable-next-line @typescript-eslint/ban-types
-export function Arguments (this: unknown, target: Object, propKey: string, desc: PropertyDescriptor): PropertyDescriptor {
+export function Arguments (target: Object, propKey: string, desc: PropertyDescriptor): PropertyDescriptor {
+  const originalMethod = desc.value
+  const paramIndex: ParameterMetadata[] | undefined = Reflect.getOwnMetadata(MetaKeys.COMMAND_RUN_PARAMS, target, propKey)
+
   return {
     ...desc,
-    value: async (...args: unknown[]): Promise<void> => {
+    async value (...args: unknown[]): Promise<void> {
       const message = args[0]
-      const paramIndex: ParameterMetadata[] | undefined = Reflect.getOwnMetadata(MetaKeys.COMMAND_RUN_PARAMS, target, propKey)
 
       if (!(message instanceof Message)) throw new Error('The first argument must be a "Message" object.')
-      if (!paramIndex) return
+      if (!paramIndex) return originalMethod.apply(this, args)
 
       const language = await message.getLanguageData()
 
@@ -45,10 +47,7 @@ export function Arguments (this: unknown, target: Object, propKey: string, desc:
           }
         })
 
-        /**
-         * 問題あり
-         */
-        return desc.value.apply(this, args)
+        return originalMethod.apply(this, args)
       } catch (error) {
         message.client.emit(Events.COMMAND_MISSING_ARGS, message, error)
       }

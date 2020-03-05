@@ -13,11 +13,10 @@ export default class extends Command {
 
   @Arguments
   public async run (message: Message, @Optional('command') command?: Command): Promise<Message> {
-    const client = message.client
-    if (!command) return message.channel.send(client.commands.keyArray().join(', '), { code: true })
+    if (!command) return message.channel.send(this.client.commands.keyArray().join(', '), { code: true })
 
     const language = await message.getLanguageData()
-    const prefix = client.prefix
+    const prefix = this.client.prefix
     const commandName = command.name
     const description = command.description && command.description(language)
     const usage = command.usage ? `${prefix + commandName} ${command.usage}` : prefix + commandName
