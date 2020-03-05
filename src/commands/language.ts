@@ -5,7 +5,10 @@ import { Arguments, Client, Command, Language, Required } from '..'
 
 export default class extends Command {
   public constructor (client: Client) {
-    super(client, 'language')
+    super(client, 'language', {
+      description: (language) => language.command.language.description,
+      usage: '<languageCode>'
+    })
   }
 
   @Arguments
@@ -17,6 +20,6 @@ export default class extends Command {
 
     const language = await message.getLanguageData()
 
-    return message.channel.send(language.command.language.run.done(settings.langCode))
+    return message.channel.send(language.command.language.settingCompleted(settings.langCode))
   }
 }

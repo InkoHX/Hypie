@@ -1,13 +1,15 @@
 import { Message, Permissions, PermissionString } from 'discord.js'
 
-import { Client } from '..'
+import { Client, LanguageData } from '..'
 import Structure from './Structure'
 
 export type FilterType = 'textOnly' | 'dmOnly'
 
 export interface BaseCommandOptions {
   filter: FilterType,
-  requiredPermissions: PermissionString[]
+  requiredPermissions: PermissionString[],
+  description: (language: LanguageData) => string,
+  usage: string
 }
 
 export type CommandOptions = Readonly<BaseCommandOptions>
@@ -19,6 +21,10 @@ export abstract class Command extends Structure {
 
   public readonly requiredPermission: Permissions
 
+  public readonly description?: (language: LanguageData) => string
+
+  public readonly usage?: string
+
   public constructor (client: Client, name: string, options?: Partial<CommandOptions>) {
     super(client)
 
@@ -27,6 +33,10 @@ export abstract class Command extends Structure {
     this.filter = options?.filter
 
     this.requiredPermission = new Permissions(options?.requiredPermissions)
+
+    this.description = options?.description
+
+    this.usage = options?.usage
   }
 
   public abstract run (message: Message, ...args: unknown[]): Promise<Message | Message[]>

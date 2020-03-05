@@ -20,10 +20,14 @@ export class Language extends Structure {
 
 export interface BaseLanguageData {
   command: {
+    help: {
+      description: string,
+      commandInfo: (commandName: string, usage: string, description: string) => string,
+      noDescription: string
+    },
     language: {
-      run: {
-        done: (code: string) => string
-      }
+      description: string,
+      settingCompleted: (langCode: string) => string
     }
   },
   error: {
@@ -34,7 +38,8 @@ export interface BaseLanguageData {
     resolver: {
       boolean: (paramIndex: number) => string,
       number: (paramIndex: number) => string,
-      language: (paramIndex: number, codes: string[]) => string
+      language: (paramIndex: number, codes: string[]) => string,
+      command: (paramIndex: number, commands: string[]) => string
     }
   }
 }

@@ -1,14 +1,27 @@
 /* eslint-disable new-cap */
 import { Message } from 'discord.js'
 
-import { Client, Command } from '..'
+import { Arguments, Client, Command, Optional } from '..'
 
-export default class HelpCommand extends Command {
+export default class extends Command {
   public constructor (client: Client) {
-    super(client, 'help')
+    super(client, 'help', {
+      description: language => language.command.help.description,
+      usage: '[commandName]'
+    })
   }
 
-  public run (message: Message): Promise<Message> {
-    return message.channel.send(this.client.commands.keyArray().join(', '), { code: true })
+  @Arguments
+  public async run (message: Message, @Optional('command') command?: Command): Promise<Message> {
+    const client = message.client
+    if (!command) return message.channel.send(client.commands.keyArray().join(', '), { code: true })
+
+    const language = await message.getLanguageData()
+    const prefix = client.prefix
+    const commandName = command.name
+    const description = command.description && command.description(language)
+    const usage = command.usage ? `${prefix + commandName} ${command.usage}` : prefix + commandName
+    
+    return message.channel.send(language.command.help.commandInfo(commandName, usage, description || language.command.help.noDescription))
   }
 }

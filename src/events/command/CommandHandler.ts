@@ -18,7 +18,7 @@ export default class CommandHandler extends Event {
     })
   }
 
-  public run (message: Message): void {
+  public async run (message: Message): Promise<void> {
     if (message.system || message.author.bot) return
     if (!message.content.startsWith(this.client.prefix)) return
 
@@ -34,8 +34,7 @@ export default class CommandHandler extends Event {
     if (this.isMissingPermission(channel, command)) return
 
     try {
-      // eslint-disable-next-line @typescript-eslint/no-floating-promises
-      command.run(message, ...args.slice(1))
+      await command.run(message, ...args.slice(1))
     } catch (error) {
       this.client.emit(Events.COMMAND_ERROR, message, command, error)
     }
