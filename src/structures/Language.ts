@@ -19,9 +19,6 @@ export class Language extends Structure {
 }
 
 export interface BaseLanguageData {
-  argument: {
-    blankString: (paramIndex: number) => string
-  },
   command: {
     help: {
       description: string,

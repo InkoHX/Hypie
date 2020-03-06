@@ -5,9 +5,6 @@ import { Client, Command, Language } from '..'
 export default class extends Language {
   public constructor (client: Client) {
     super(client, 'ja-JP', {
-      argument: {
-        blankString: (paramIndex: number): string => `第${paramIndex}引数が空の文字列です。`
-      },
       command: {
         help: {
           description: 'このボットに実装されているすべてのコマンドを表示します。',
