@@ -1,11 +1,14 @@
 /* eslint-disable new-cap */
 import { Guild } from 'discord.js'
-import { BaseEntity, Entity, PrimaryColumn } from 'typeorm'
+import { BaseEntity, Column, Entity, PrimaryColumn } from 'typeorm'
 
 @Entity()
 export class GuildSettings extends BaseEntity {
   @PrimaryColumn()
   public id!: string
+
+  @Column()
+  public prefix?: string
 
   public constructor (guild?: Guild) {
     super()

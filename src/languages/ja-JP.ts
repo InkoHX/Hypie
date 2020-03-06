@@ -5,6 +5,9 @@ import { Client, Command, Language } from '..'
 export default class extends Language {
   public constructor (client: Client) {
     super(client, 'ja-JP', {
+      argument: {
+        blankString: (paramIndex: number): string => `第${paramIndex}引数が空の文字列です。`
+      },
       command: {
         help: {
           description: 'このボットに実装されているすべてのコマンドを表示します。',
@@ -18,6 +21,12 @@ export default class extends Language {
         language: {
           description: '言語設定を変更します。',
           settingCompleted: (langCode: string): string => `言語を\`${langCode}\`に設定しました。`
+        },
+        prefix: {
+          description: 'コマンドの接頭辞を設定します。',
+          notOwner: 'このコマンドはサーバーの管理者のみが使用できます。',
+          samePrefix: '既にその接頭辞が設定されています。',
+          settingCompleted: (prefix: string): string => `接頭辞を\`${prefix}\`に設定しました。`
         }
       },
       error: {

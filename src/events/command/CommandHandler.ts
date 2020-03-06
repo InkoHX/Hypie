@@ -19,11 +19,13 @@ export default class CommandHandler extends Event {
   }
 
   public async run (message: Message): Promise<void> {
+    const prefix = (await message.guild?.getSettings())?.prefix || this.client.prefix
+
     if (message.system || message.author.bot) return
-    if (!message.content.startsWith(this.client.prefix)) return
+    if (!message.content.startsWith(prefix)) return
 
     const args = message.content
-      .replace(this.client.prefix, '')
+      .replace(prefix, '')
       .split(' ')
     const command = this.client.commands.get(args[0])
 
