@@ -28,6 +28,12 @@ export interface BaseLanguageData {
     language: {
       description: string,
       settingCompleted: (langCode: string) => string
+    },
+    prefix: {
+      description: string,
+      samePrefix: string,
+      notOwner: string,
+      settingCompleted: (prefix: string) => string
     }
   },
   error: {
