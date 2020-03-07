@@ -1,7 +1,7 @@
 {
-  "name": "discordjs-with-typeorm",
+  "name": "hypie",
   "version": "0.0.1",
-  "description": "Discord.js with TypeORM",
+  "description": "Hypie is a template that supports the creation of Discord bots.",
   "license": "MIT",
   "main": "./dist/bot.js",
   "scripts": {
