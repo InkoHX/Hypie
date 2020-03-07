@@ -24,6 +24,9 @@ export default class extends Language {
           notOwner: 'このコマンドはサーバーの管理者のみが使用できます。',
           samePrefix: '既にその接頭辞が設定されています。',
           settingCompleted: (prefix: string): string => `接頭辞を\`${prefix}\`に設定しました。`
+        },
+        ping: {
+          description: '応答速度を計測します。'
         }
       },
       error: {

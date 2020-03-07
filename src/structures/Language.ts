@@ -34,6 +34,9 @@ export interface BaseLanguageData {
       samePrefix: string,
       notOwner: string,
       settingCompleted: (prefix: string) => string
+    },
+    ping: {
+      description: string
     }
   },
   error: {
