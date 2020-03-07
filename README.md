@@ -1,4 +1,4 @@
-<img src="https://i.imgur.com/czROpZP.png" align="right"/>
+<img src="https://i.imgur.com/czROpZP.png" align="right" width="128px" height="128px"/>
 
 # Hypie
 
