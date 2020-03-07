@@ -1,3 +1,17 @@
-# Discord.js with TypeORM
+<img src="https://i.imgur.com/czROpZP.png" align="right"/>
 
-Discord.jsとTypeORMを組み合わせたやつ
+# Hypie
+
+**Hypie is a template that supports the creation of Discord bots.**
+
+## Features
+
+- Support for multiple databases using TypeORM
+  - Migrations
+  - Active Record
+- Multi-language support
+
+## Requirement
+
+- Node.js v12 or later
+- Yarn
