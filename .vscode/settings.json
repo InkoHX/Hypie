@@ -4,11 +4,13 @@
   "cSpell.words": [
     "ESNEXT",
     "Hypie",
+    "bufferutil",
     "codestyle",
     "deepmerge",
     "discordjs",
     "downlevel",
     "inkohx",
+    "libsodium",
     "promisify",
     "sourcemap",
     "tslib",
