@@ -1,0 +1,21 @@
+{
+	"createCommand": {
+		"prefix": "Hypie - create Command.",
+		"body": [
+			"import { Message } from 'discord.js'",
+			"",
+			"import { Client, Command } from '..'",
+			"",
+			"export default class extends Command {",
+			"\tpublic constructor (client: Client) {",
+			"\t\tsuper(client, '$1', { $2 })",
+			"\t}",
+			"",
+			"\tpublic async run (message: Message, ${3:...args: string[]}): Promise<Message> {",
+			"\t\t$4",
+			"\t}",
+			"}",
+			""
+		]
+	}
+}
