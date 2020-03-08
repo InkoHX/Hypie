@@ -1,20 +1,13 @@
 {
   "typescript.tsdk": "node_modules\\typescript\\lib",
   "files.eol": "\n",
+  "editor.tabSize": 2,
+  "eslint.packageManager": "yarn",
+  "npm.packageManager": "yarn",
+  "cSpell.enableFiletypes": [
+    "!json"
+  ],
   "cSpell.words": [
-    "ESNEXT",
-    "Hypie",
-    "bufferutil",
-    "codestyle",
-    "deepmerge",
-    "discordjs",
-    "downlevel",
-    "inkohx",
-    "libsodium",
-    "promisify",
-    "sourcemap",
-    "tslib",
-    "typechecking",
-    "typeorm"
+    "Hypie"
   ]
 }
