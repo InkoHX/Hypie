@@ -13,7 +13,7 @@
   },
   "dependencies": {
     "deepmerge": "^4.2.2",
-    "discord.js": "^12.0.1",
+    "discord.js": "^12.0.2",
     "dotenv-safe": "^8.2.0",
     "glob": "^7.1.6",
     "parrot-logger": "^0.0.3",
