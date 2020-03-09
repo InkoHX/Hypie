@@ -56,7 +56,8 @@ const data: LanguageData = {
         '```ts',
         commands.join(', '),
         '```'
-      ].join('\n')
+      ].join('\n'),
+      guild: (paramIndex: number): string => `第${paramIndex}引数にはサーバーのIDを入力してください。`
     }
   },
   inhibitor: {

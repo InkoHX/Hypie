@@ -66,7 +66,8 @@ export interface BaseLanguageData {
       boolean: (paramIndex: number) => string,
       number: (paramIndex: number) => string,
       language: (paramIndex: number, codes: string[]) => string,
-      command: (paramIndex: number, commands: string[]) => string
+      command: (paramIndex: number, commands: string[]) => string,
+      guild: (paramIndex: number) => string
     }
   },
   inhibitor: {
