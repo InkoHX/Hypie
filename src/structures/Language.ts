@@ -1,4 +1,4 @@
-import { MessageEmbed } from 'discord.js'
+import { MessageEmbed, PermissionString } from 'discord.js'
 import { DeepPartial, DeepReadonly } from 'utility-types'
 
 import { Client, Command } from '..'
@@ -49,6 +49,13 @@ export interface BaseLanguageData {
       number: (paramIndex: number) => string,
       language: (paramIndex: number, codes: string[]) => string,
       command: (paramIndex: number, commands: string[]) => string
+    }
+  },
+  inhibitor: {
+    missingBotPermissions: (permissions: PermissionString[]) => string,
+    channelFilter: {
+      dm: string,
+      text: string
     }
   }
 }

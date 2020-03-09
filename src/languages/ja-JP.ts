@@ -1,4 +1,4 @@
-import { MessageEmbed } from 'discord.js'
+import { MessageEmbed, PermissionString } from 'discord.js'
 
 import { Client, Command, Language } from '..'
 
@@ -58,6 +58,19 @@ export default class extends Language {
             commands.join(', '),
             '```'
           ].join('\n')
+        }
+      },
+      inhibitor: {
+        missingBotPermissions: (permissions: PermissionString[]): string => [
+          'このコマンドを実行するには下記の権限をボットに与えてください。',
+          '',
+          '```ts',
+          permissions.join(', '),
+          '```'
+        ].join('\n'),
+        channelFilter: {
+          dm: 'このコマンドはDMチャンネルのみ使用可能です。',
+          text: 'このコマンドはテキストチャンネルのみ使用可能です。'
         }
       }
     })

@@ -1,14 +1,6 @@
-import { DMChannel, Message, PermissionString, TextChannel } from 'discord.js'
+import { Message } from 'discord.js'
 
-import { Client, Command, Event, Events } from '../..'
-
-const missingMessage = (permissions: PermissionString[]): string => [
-  'このコマンドを実行するには下記の権限が必要です。',
-  '',
-  '```',
-  permissions.join(', '),
-  '```'
-].join('\n')
+import { Client, Event, Events } from '../..'
 
 export default class CommandHandler extends Event {
   public constructor (client: Client) {
@@ -30,47 +22,19 @@ export default class CommandHandler extends Event {
     const command = this.client.commands.get(args[0])
 
     if (!command) return
-    const channel = message.channel
-
-    if (this.isNotAllowChannel(channel, command)) return
-    if (this.isMissingPermission(channel, command)) return
 
     try {
-      await command.run(message, ...args.slice(1))
+      const language = await message.getLanguageData()
+
+      await Promise.all(this.client.inhibitors.map(value => value.run(message, command, language)))
+
+      try {
+        await command.run(message, ...args.slice(1))
+      } catch (error) {
+        this.client.emit(Events.COMMAND_ERROR, message, command, error)
+      }
     } catch (error) {
-      this.client.emit(Events.COMMAND_ERROR, message, command, error)
+      this.client.emit(Events.COMMAND_INHIBITOR, message, error)
     }
-  }
-
-  private isNotAllowChannel (channel: TextChannel | DMChannel, command: Command): boolean {
-    if (command.filter === 'textOnly' && channel.type !== 'text') {
-      channel.send('このコマンドはテキストチャンネルでしか使用できません。')
-        .catch((error) => this.client.logger.error(error))
-
-      return true
-    }
-    if (command.filter === 'dmOnly' && channel.type !== 'dm') {
-      channel.send('このコマンドはダイレクトメッセージでしか使用できません。')
-        .catch((error) => this.client.logger.error(error))
-
-      return true
-    }
-
-    return false
-  }
-
-  private isMissingPermission (channel: TextChannel | DMChannel, command: Command): boolean {
-    if (!this.client.user) return false
-    if (!(channel instanceof TextChannel)) return false
-    const missing = channel.permissionsFor(this.client.user)?.missing(command.requiredPermission, false)
-
-    if (missing?.length) {
-      channel.send(missingMessage(missing))
-        .catch(error => this.client.logger.error(error))
-
-      return true
-    }
-
-    return false
   }
 }
