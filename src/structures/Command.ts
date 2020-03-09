@@ -9,7 +9,8 @@ export interface BaseCommandOptions {
   filter: FilterType,
   requiredPermissions: PermissionString[],
   description: (language: LanguageData) => string,
-  usage: string
+  usage: string,
+  nsfw: boolean
 }
 
 export type CommandOptions = Readonly<BaseCommandOptions>
@@ -25,6 +26,8 @@ export abstract class Command extends Structure {
 
   public readonly usage?: string
 
+  public readonly nsfw: boolean
+
   public constructor (client: Client, name: string, options?: Partial<CommandOptions>) {
     super(client)
 
@@ -37,6 +40,8 @@ export abstract class Command extends Structure {
     this.description = options?.description
 
     this.usage = options?.usage
+
+    this.nsfw = options?.nsfw || false
   }
 
   public abstract run (message: Message, ...args: unknown[]): Promise<Message | Message[]>

@@ -70,7 +70,8 @@ const data: LanguageData = {
     channelFilter: {
       dm: 'このコマンドはDMチャンネルのみ使用可能です。',
       text: 'このコマンドはテキストチャンネルのみ使用可能です。'
-    }
+    },
+    nsfw: 'このコマンドはNSFWチャンネルのみ使用可能です。'
   }
 }
 

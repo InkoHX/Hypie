@@ -74,7 +74,8 @@ export interface BaseLanguageData {
     channelFilter: {
       dm: string,
       text: string
-    }
+    },
+    nsfw: string
   }
 }
 
