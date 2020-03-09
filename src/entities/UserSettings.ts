@@ -7,9 +7,8 @@ export class UserSettings extends BaseEntity {
   @PrimaryColumn()
   public id!: string
 
-  // eslint-disable-next-line @typescript-eslint/no-inferrable-types
   @Column()
-  public langCode: string = 'ja-JP'
+  public langCode?: string
 
   public constructor (user?: User) {
     super()

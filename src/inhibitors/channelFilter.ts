@@ -1,14 +1,14 @@
 import { Message } from 'discord.js'
 
 import { Client } from '../Client'
-import { BaseLanguageData, Command, Inhibitor } from '../structures'
+import { LanguageData, Command, Inhibitor } from '../structures'
 
 export default class extends Inhibitor {
   public constructor (client: Client) {
     super(client, 'channelFilter')
   }
 
-  public run (message: Message, command: Command, language: BaseLanguageData): void {
+  public run (message: Message, command: Command, language: LanguageData): void {
     const channel = message.channel
 
     if (command.filter === 'dmOnly' && channel.type !== 'dm') throw new Error(language.inhibitor.channelFilter.dm)

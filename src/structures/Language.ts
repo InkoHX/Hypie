@@ -4,17 +4,35 @@ import { DeepPartial, DeepReadonly } from 'utility-types'
 import { Client, Command } from '..'
 import Structure from './Structure'
 
+interface PartialLanguageOptions {
+  default?: false,
+  code: string,
+  data: DeepPartial<LanguageData>
+}
+
+interface RequiredLanguageOptions {
+  default: true,
+  code: string,
+  data: LanguageData
+}
+
+export type LanguageOptions = PartialLanguageOptions | RequiredLanguageOptions
+
 export class Language extends Structure {
   public readonly code: string
 
   public readonly data: DeepPartial<LanguageData>
 
-  public constructor (client: Client, code: string, data: DeepPartial<LanguageData>) {
+  public readonly default: boolean
+
+  public constructor (client: Client, options: LanguageOptions) {
     super(client)
 
-    this.code = code
+    this.code = options.code
 
-    this.data = data
+    this.data = options.data
+
+    this.default = options.default || false
   }
 }
 
