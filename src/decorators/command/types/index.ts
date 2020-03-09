@@ -3,10 +3,11 @@ import { Message } from 'discord.js'
 import { LanguageData } from '../../..'
 import toBoolean from './Boolean'
 import toCommand from './Command'
+import toGuild from './Guild'
 import toLanguage from './Language'
 import toNumber from './Number'
 import toString from './String'
-import toGuild from './Guild'
+import toUser from './User'
 
 export type ArgumentResolverFunction = (data: unknown, paramIndex: number, language: LanguageData, message: Message) => unknown
 
@@ -15,7 +16,8 @@ export type ArgumentType = 'string' |
 'boolean' |
 'language' |
 'command' |
-'guild'
+'guild' |
+'user'
 
 const resolvers: Record<ArgumentType, ArgumentResolverFunction> = {
   string: toString,
@@ -23,7 +25,8 @@ const resolvers: Record<ArgumentType, ArgumentResolverFunction> = {
   boolean: toBoolean,
   language: toLanguage,
   command: toCommand,
-  guild: toGuild
+  guild: toGuild,
+  user: toUser
 }
 
 export default resolvers
