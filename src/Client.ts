@@ -45,7 +45,11 @@ export class Client extends DjsClient {
 
     this.inhibitors = new InhibitorRegistry(this)
 
-    this.logger = new Logger()
+    this.logger = new Logger({
+      file: {
+        logging: true
+      }
+    })
 
     this.path = require.main?.filename
       ? path.dirname(require.main.filename)
