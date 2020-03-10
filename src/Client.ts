@@ -10,6 +10,7 @@ declare module 'discord.js' {
     readonly events: EventRegistry,
     readonly commands: CommandRegistry,
     readonly languages: LanguageRegistry,
+    readonly inhibitors: InhibitorRegistry,
     readonly path: string,
     readonly prefix: string,
     readonly logger: Logger,
