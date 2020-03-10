@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-unsafe-return */
+/* eslint-disable @typescript-eslint/no-unsafe-member-access */
 import { Collection } from 'discord.js'
 import glob from 'glob'
 import util from 'util'
@@ -36,7 +38,7 @@ export class Registry<K, V> extends Collection<K, V> {
     return value
   }
 
-  public registerAll (data: RegisterData<K, V>[]): Promise<V[]> {
+  public registerAll (data: Array<RegisterData<K, V>>): Promise<V[]> {
     return Promise.all(data.map((value) => this.register(value)))
   }
 
@@ -53,6 +55,7 @@ export class Registry<K, V> extends Collection<K, V> {
 
   protected async loadModule (absolutePath: string): Promise<unknown> {
     try {
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-call
       const Module: unknown = await import(absolutePath)
         .then(value => value.default || value)
 

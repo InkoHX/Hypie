@@ -17,11 +17,11 @@ export default class extends Command {
 
     const guildSettings = await message.guild?.getSettings()
     const language = await message.getLanguageData()
-    const prefix = guildSettings?.prefix || this.client.prefix
+    const prefix = guildSettings?.prefix ?? this.client.prefix
     const commandName = command.name
     const description = command.description && command.description(language)
     const usage = command.usage ? `${prefix + commandName} ${command.usage}` : prefix + commandName
     
-    return message.channel.send(language.command.help.commandInfo(commandName, usage, description || language.command.help.noDescription))
+    return message.channel.send(language.command.help.commandInfo(commandName, usage, description ?? language.command.help.noDescription))
   }
 }

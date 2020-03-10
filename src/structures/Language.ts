@@ -32,7 +32,7 @@ export class Language extends Structure {
 
     this.data = options.data
 
-    this.default = options.default || false
+    this.default = options.default ?? false
   }
 }
 
