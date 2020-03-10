@@ -59,7 +59,8 @@ const data: LanguageData = {
       ].join('\n'),
       guild: (paramIndex: number): string => `第${paramIndex}引数にはサーバーのIDを入力してください。`,
       user: (paramIndex: number): string => `第${paramIndex}引数にはユーザーのメンション、またはIDを入力して下さい。`,
-      textChannel: (paramIndex: number): string => `第${paramIndex}引数にはテキストチャンネルのIDまたは、チャンネルのメンションを入力してください。`
+      textChannel: (paramIndex: number): string => `第${paramIndex}引数にはテキストチャンネルのIDまたは、チャンネルのメンションを入力してください。`,
+      dmChannel: (paramIndex: number): string => `第${paramIndex}引数にはDMチャンネルのIDを入力してください。`
     }
   },
   inhibitor: {
