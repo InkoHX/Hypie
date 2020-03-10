@@ -2,7 +2,7 @@ import { TextChannel } from 'discord.js'
 
 import { ArgumentResolverFunction } from '.'
 
-const toTextChannel: ArgumentResolverFunction = (data, paramIndex, language, message) => {
+const toTextChannel: ArgumentResolverFunction = (data, paramIndex, language, message): TextChannel => {
   const client = message.client
   const textChannel = client.channels.resolve(String(data))
   
