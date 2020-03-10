@@ -68,7 +68,8 @@ export interface BaseLanguageData {
       language: (paramIndex: number, codes: string[]) => string,
       command: (paramIndex: number, commands: string[]) => string,
       guild: (paramIndex: number) => string,
-      user: (paramIndex: number) => string
+      user: (paramIndex: number) => string,
+      textChannel: (paramIndex: number) => string
     }
   },
   inhibitor: {

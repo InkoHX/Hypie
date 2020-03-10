@@ -8,6 +8,7 @@ import toLanguage from './Language'
 import toNumber from './Number'
 import toString from './String'
 import toUser from './User'
+import toTextChannel from './TextChannel'
 
 export type ArgumentResolverFunction = (data: unknown, paramIndex: number, language: LanguageData, message: Message) => unknown
 
@@ -17,7 +18,8 @@ export type ArgumentType = 'string' |
 'language' |
 'command' |
 'guild' |
-'user'
+'user' |
+'textChannel'
 
 const resolvers: Record<ArgumentType, ArgumentResolverFunction> = {
   string: toString,
@@ -26,7 +28,8 @@ const resolvers: Record<ArgumentType, ArgumentResolverFunction> = {
   language: toLanguage,
   command: toCommand,
   guild: toGuild,
-  user: toUser
+  user: toUser,
+  textChannel: toTextChannel
 }
 
 export default resolvers
