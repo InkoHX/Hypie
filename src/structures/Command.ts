@@ -41,7 +41,7 @@ export abstract class Command extends Structure {
 
     this.usage = options?.usage
 
-    this.nsfw = options?.nsfw || false
+    this.nsfw = options?.nsfw ?? false
   }
 
   public abstract run (message: Message, ...args: unknown[]): Promise<Message | Message[]>

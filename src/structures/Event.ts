@@ -30,9 +30,9 @@ export abstract class Event extends Structure {
 
     this.eventName = options.eventName
 
-    this.emitter = options.emitter || this.client
+    this.emitter = options.emitter ?? this.client
 
-    this.once = options.once || false
+    this.once = options.once ?? false
 
     this._bindRun = this.run.bind(this)
   }
