@@ -6,8 +6,7 @@ import { Arguments, Client, Command, Optional } from '..'
 export default class extends Command {
   public constructor (client: Client) {
     super(client, 'help', {
-      description: language => language.command.help.description,
-      usage: '[commandName]'
+      description: language => language.command.help.description
     })
   }
 
@@ -20,8 +19,8 @@ export default class extends Command {
     const prefix = guildSettings?.prefix ?? this.client.prefix
     const commandName = command.name
     const description = command.description && command.description(language)
-    const usage = command.usage ? `${prefix + commandName} ${command.usage}` : prefix + commandName
-    
+    const usage = `${prefix + commandName} ${command.getUsage()}`
+
     return message.channel.send(language.command.help.commandInfo(commandName, usage, description ?? language.command.help.noDescription))
   }
 }
