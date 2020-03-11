@@ -23,7 +23,7 @@
     "utility-types": "^3.10.0"
   },
   "devDependencies": {
-    "@inkohx/eslint-config-codestyle": "^2.0.1",
+    "@inkohx/eslint-config-codestyle": "^2.1.0",
     "@types/deepmerge": "^2.2.0",
     "@types/glob": "^7.1.1",
     "@types/node": "^13.9.0",
