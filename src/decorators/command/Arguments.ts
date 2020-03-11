@@ -15,7 +15,6 @@ export interface ParameterMetadata {
   readonly type: ArgumentType
 }
 
-// eslint-disable-next-line @typescript-eslint/ban-types
 export function Arguments (target: Object, propKey: string, desc: PropertyDescriptor): PropertyDescriptor {
   const originalMethod = desc.value
   const paramIndex: ParameterMetadata[] | undefined = Reflect.getOwnMetadata(MetaKeys.COMMAND_RUN_PARAMS, target, propKey)

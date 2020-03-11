@@ -1,6 +1,6 @@
 import { Message, Permissions, PermissionString } from 'discord.js'
 
-import { Client, LanguageData } from '..'
+import { Client, getMetadataStorage, LanguageData } from '..'
 import Structure from './Structure'
 
 export type FilterType = 'textOnly' | 'dmOnly'
@@ -45,4 +45,21 @@ export abstract class Command extends Structure {
   }
 
   public abstract run (message: Message, ...args: unknown[]): Promise<Message | Message[]>
+
+  /**
+   * Create usages from metadata.
+   * NOTE: It is not complete, so if usage is set, it is returned with priority.
+   */
+  public getUsage (): string {
+    if (this.usage) return this.usage
+
+    const metadataStorage = getMetadataStorage()
+    const usage = [...metadataStorage.requiredParams, ...metadataStorage.optionalParams]
+      .filter(value => value.target === Object.getPrototypeOf(this))
+      .sort((a, b) => a.index - b.index)
+      .map(value => value.mode === 'required' ? `<${value.type}>` : `[${value.type}]`)
+      .join(' ')
+
+    return usage
+  }
 }

@@ -1,4 +1,3 @@
-/* eslint-disable new-cap */
 import { Guild, Message } from 'discord.js'
 
 import { Arguments, Client, Command, Required } from '..'
@@ -7,8 +6,7 @@ export default class extends Command {
   public constructor (client: Client) {
     super(client, 'prefix', {
       description: language => language.command.prefix.description,
-      filter: 'textOnly',
-      usage: '<string>'
+      filter: 'textOnly'
     })
   }
 

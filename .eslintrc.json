@@ -10,5 +10,31 @@
   "plugins": [
     "@typescript-eslint"
   ],
-  "extends": "@inkohx/eslint-config-codestyle/typescript"
+  "extends": "@inkohx/eslint-config-codestyle/typescript",
+  "rules": {
+    "@typescript-eslint/ban-types": [
+      "error",
+      {
+        "types": {
+          "String": {
+            "message": "Use string instead",
+            "fixWith": "string"
+          },
+          "Boolean": {
+            "message": "Use boolean instead",
+            "fixWith": "boolean"
+          },
+          "Number": {
+            "message": "Use number instead",
+            "fixWith": "number"
+          },
+          "Symbol": {
+            "message": "Use symbol instead",
+            "fixWith": "symbol"
+          }
+        },
+        "extendDefaults": false
+      }
+    ]
+  }
 }
