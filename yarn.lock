@@ -23,10 +23,10 @@
   resolved "https://registry.yarnpkg.com/@discordjs/collection/-/collection-0.1.5.tgz#1781c620b4c88d619bd0373a1548e5a6025e3d3a"
   integrity sha512-CU1q0UXQUpFNzNB7gufgoisDHP7n+T3tkqTsp3MNUkVJ5+hS3BCvME8uCXAUFlz+6T2FbTCu75A+yQ7HMKqRKw==
 
-"@inkohx/eslint-config-codestyle@^2.0.1":
-  version "2.0.1"
-  resolved "https://registry.yarnpkg.com/@inkohx/eslint-config-codestyle/-/eslint-config-codestyle-2.0.1.tgz#5b9707e69f10f0715c95966f9cd2cd341fe29040"
-  integrity sha512-eg1Y3b6TwEV6vKumj64JDg5fJASsrOyWTyr/IlIoWtuAt0hOz5YyptOq3M/8/Sqhs0Io84RoyBDW76YM+SfMuQ==
+"@inkohx/eslint-config-codestyle@^2.1.0":
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/@inkohx/eslint-config-codestyle/-/eslint-config-codestyle-2.1.0.tgz#2a3226e1bb510c39474c769f045871fb98c43b67"
+  integrity sha512-EKhAoZdZFKiEE6L2zhpU85A66TIBji+jb+iaLN94C8LuoYt3/WLZeNtbXIGkIUMumIu1u0EeGKVNG30wnWVFww==
 
 "@types/color-name@^1.1.1":
   version "1.1.1"
