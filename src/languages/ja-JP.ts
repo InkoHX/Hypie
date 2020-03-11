@@ -64,8 +64,15 @@ const data: LanguageData = {
     }
   },
   inhibitor: {
-    missingBotPermissions: (permissions: PermissionString[]): string => [
+    missingBotPermission: (permissions: PermissionString[]): string => [
       'このコマンドを実行するには下記の権限をボットに与えてください。',
+      '',
+      '```ts',
+      permissions.join(', '),
+      '```'
+    ].join('\n'),
+    missingUserPermission: (permissions: PermissionString[]): string => [
+      'あなたがこのコマンドを実行するには下記の権限が必要です。',
       '',
       '```ts',
       permissions.join(', '),

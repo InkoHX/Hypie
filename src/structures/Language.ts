@@ -74,7 +74,8 @@ export interface BaseLanguageData {
     }
   },
   inhibitor: {
-    missingBotPermissions: (permissions: PermissionString[]) => string,
+    missingBotPermission: (permissions: PermissionString[]) => string,
+    missingUserPermission: (permissions: PermissionString[]) => string,
     channelFilter: {
       dm: string,
       text: string
