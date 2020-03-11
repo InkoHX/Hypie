@@ -1,7 +1,6 @@
-/* eslint-disable no-confusing-arrow */
 import { Message, Permissions, PermissionString } from 'discord.js'
 
-import { Client, LanguageData, getMetadataStorage } from '..'
+import { Client, getMetadataStorage, LanguageData } from '..'
 import Structure from './Structure'
 
 export type FilterType = 'textOnly' | 'dmOnly'

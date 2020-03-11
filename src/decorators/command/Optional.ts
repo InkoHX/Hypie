@@ -5,7 +5,6 @@ import { getMetadataStorage } from '../..'
 export type OptionalMetadata = ParameterMetadata
 
 export function Optional (type: ArgumentType): Function {
-  // eslint-disable-next-line @typescript-eslint/ban-types
   return (target: Object, propKey: string, paramIndex: number): void => {
     const indexArray: OptionalMetadata[] = Reflect.getOwnMetadata(MetaKeys.COMMAND_RUN_PARAMS, target, propKey) ?? []
     const data: ParameterMetadata = {
