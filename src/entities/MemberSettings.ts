@@ -1,4 +1,3 @@
-/* eslint-disable new-cap */
 import { GuildMember } from 'discord.js'
 import { BaseEntity, Entity, PrimaryColumn } from 'typeorm'
 

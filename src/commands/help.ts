@@ -1,4 +1,3 @@
-/* eslint-disable new-cap */
 import { Message } from 'discord.js'
 
 import { Arguments, Client, Command, Optional } from '..'
