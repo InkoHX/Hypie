@@ -1,5 +1,6 @@
 import './extensions'
 import 'reflect-metadata'
+
 import { MetadataStorage } from './metadata/MetadataStorage'
 
 export * from './Client'
