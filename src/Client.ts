@@ -33,8 +33,6 @@ export class Client extends DjsClient {
 
   public readonly logger: Logger
 
-  public readonly defaultLanguageCode: string
-
   public constructor (options?: ClientOptions) {
     super(options)
 
@@ -57,8 +55,6 @@ export class Client extends DjsClient {
       : process.cwd()
 
     this.prefix = '!!'
-
-    this.defaultLanguageCode = 'ja-JP'
   }
 
   public async login (token?: string): Promise<string> {
