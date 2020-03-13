@@ -1,6 +1,7 @@
 {
 	"createCommand": {
-		"prefix": "Hypie - create Command.",
+		"prefix": "Hypie: create Command.",
+		"scope": "typescript",
 		"body": [
 			"import { Message } from 'discord.js'",
 			"",
@@ -13,6 +14,47 @@
 			"",
 			"\tpublic async run (message: Message, ${3:...args: string[]}): Promise<Message> {",
 			"\t\t$4",
+			"\t}",
+			"}",
+			""
+		]
+	},
+	"createEvent": {
+		"prefix": "Hypie: create Event.",
+		"scope": "typescript",
+		"body": [
+			"import { Client, Event } from '..'",
+			"",
+			"export default class extends Event {",
+			"\tpublic constructor (client: Client) {",
+			"\t\tsuper(client, {",
+			"\t\t\teventName: '$1',",
+			"\t\t\tname: '$2'",
+			"\t\t})",
+			"\t}",
+			"",
+			"\tpublic run (${3:...args: unknown[]}): void {",
+			"\t\t$4",
+			"\t}",
+			"}",
+			""
+		]
+	},
+	"createInhibitor": {
+		"prefix": "Hypie: create Inhibitor.",
+		"scope": "typescript",
+		"body": [
+			"import { Message } from 'discord.js'",
+			"",
+			"import { Client, Inhibitor, Command, LanguageData } from '..'",
+			"",
+			"export default class extends Inhibitor {",
+			"\tpublic constructor (client: Client) {",
+			"\t\tsuper(client, '$1')",
+			"\t}",
+			"",
+			"\tpublic run (message: Message, command: Command, language: LanguageData): void {",
+			"\t\t$2",
 			"\t}",
 			"}",
 			""
