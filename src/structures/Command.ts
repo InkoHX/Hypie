@@ -11,7 +11,8 @@ export interface BaseCommandOptions {
   requiredUserPermissions: PermissionString[],
   description: (language: LanguageData) => string,
   usage: string,
-  nsfw: boolean
+  nsfw: boolean,
+  ownerOnly: boolean
 }
 
 export type CommandOptions = Readonly<BaseCommandOptions>
@@ -31,6 +32,8 @@ export abstract class Command extends Structure {
 
   public readonly nsfw: boolean
 
+  public readonly ownerOnly: boolean
+
   public constructor (client: Client, name: string, options?: Partial<CommandOptions>) {
     super(client)
 
@@ -47,6 +50,8 @@ export abstract class Command extends Structure {
     this.usage = options?.usage
 
     this.nsfw = options?.nsfw ?? false
+
+    this.ownerOnly = options?.ownerOnly ?? false
   }
 
   public abstract run (message: Message, ...args: unknown[]): Promise<Message | Message[]>

@@ -80,7 +80,8 @@ export interface BaseLanguageData {
       dm: string,
       text: string
     },
-    nsfw: string
+    nsfw: string,
+    ownerOnly: string
   }
 }
 
