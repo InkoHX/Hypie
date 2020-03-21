@@ -5,7 +5,8 @@
   "eslint.packageManager": "yarn",
   "npm.packageManager": "yarn",
   "cSpell.enableFiletypes": [
-    "!json"
+    "!json",
+    "!jsonc"
   ],
   "cSpell.words": [
     "Hypie",
