@@ -9,6 +9,8 @@ on:
     paths-ignore:
       - '**.md'
       - '.vscode/**'
+    branches:
+      - master
   schedule:
     - cron: '0 0 1 1-12 *'
 
