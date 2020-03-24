@@ -2,7 +2,7 @@
 
 # Hypie
 
-**Hypie is a template that supports the creation of Discord bots.**
+**Hypie is a template that makes it easy to develop Discord bots.**
 
 ## Features
 
