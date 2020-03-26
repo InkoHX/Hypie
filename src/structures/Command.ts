@@ -34,6 +34,8 @@ export abstract class Command extends Structure {
 
   public readonly ownerOnly: boolean
 
+  public flags?: Record<string, unknown>
+
   public constructor (client: Client, name: string, options?: Partial<CommandOptions>) {
     super(client)
 

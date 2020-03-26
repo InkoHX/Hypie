@@ -28,6 +28,8 @@ export default class CommandHandler extends Event {
 
     if (!command) return
 
+    command.flags = parsed
+
     try {
       const language = await message.getLanguageData()
 
