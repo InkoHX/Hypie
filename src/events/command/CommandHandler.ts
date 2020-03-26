@@ -1,4 +1,5 @@
 import { Message } from 'discord.js'
+import parse, { Arguments } from 'yargs-parser'
 
 import { Client, Event, Events } from '../..'
 
@@ -16,9 +17,13 @@ export default class CommandHandler extends Event {
     if (message.system || message.author.bot) return
     if (!message.content.startsWith(prefix)) return
 
-    const args = message.content
-      .replace(prefix, '')
-      .split(' ')
+    const parsed = this.parseArguments(message.content.replace(prefix, ''))
+    const args = parsed._
+      .map(value => {
+        if (typeof value === 'string') return value.replace(/['"]+/ug, '')
+        else return value
+      })
+
     const command = this.client.commands.get(args[0])
 
     if (!command) return
@@ -36,5 +41,9 @@ export default class CommandHandler extends Event {
     } catch (error) {
       this.client.emit(Events.COMMAND_INHIBITOR, message, error)
     }
+  }
+
+  private parseArguments (str: string): Arguments {
+    return parse(str)
   }
 }
