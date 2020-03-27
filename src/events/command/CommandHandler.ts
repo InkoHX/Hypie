@@ -19,10 +19,7 @@ export default class CommandHandler extends Event {
 
     const parsed = this.parseArguments(message.content.replace(prefix, ''))
     const args = parsed._
-      .map(value => {
-        if (typeof value === 'string') return value.replace(/['"]+/ug, '')
-        else return value
-      })
+      .map(value => typeof value === 'string' ? value.replace(/^(?<quote>['"])(?<output>.*)\1$/u, '$2') : value)
 
     const command = this.client.commands.get(args[0])
 
