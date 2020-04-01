@@ -13,8 +13,7 @@ declare module 'discord.js' {
     readonly inhibitors: InhibitorRegistry,
     readonly path: string,
     readonly prefix: string,
-    readonly logger: Logger,
-    readonly defaultLanguageCode: string
+    readonly logger: Logger
   }
 }
 
