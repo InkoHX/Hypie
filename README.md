@@ -4,6 +4,8 @@
 
 **Hypie is a template that makes it easy to develop Discord bots.**
 
+![CI](https://github.com/InkoHX/Hypie/workflows/CI/badge.svg)
+
 ## Features
 
 - Support for multiple databases using TypeORM
