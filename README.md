@@ -14,6 +14,8 @@
   - Active Record
 - Multi-language support (default: Japanese)
 - Creating commands with decorators
+- Inhibitor - Process to be executed before the command is executed
+- Finalizer - Process to be executed after the command is executed
 
 ## Requirement
 
