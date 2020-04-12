@@ -9,8 +9,10 @@
     "!jsonc"
   ],
   "cSpell.words": [
+    "Finalizer",
     "Hypie",
     "deepmerge",
+    "finalizers",
     "typeorm"
   ]
 }

@@ -15,6 +15,7 @@ export default class extends Event {
       .info(`[Registry] Loaded ${this.client.events.size} events.`)
       .info(`[Registry] Loaded ${this.client.languages.size} languages.`)
       .info(`[Registry] Loaded ${this.client.inhibitors.size} inhibitors.`)
+      .info(`[Registry] Loaded ${this.client.finalizers.size} finalizers.`)
       .info('All initial setup is completed.')
   }
 }

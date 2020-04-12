@@ -34,6 +34,12 @@ export default class CommandHandler extends Event {
 
       try {
         await command.run(message, ...args.slice(1))
+
+        try {
+          await Promise.all(this.client.finalizers.map(value => value.run(message, command, language)))
+        } catch (error) {
+          this.client.emit(Events.COMMAND_FINALIZER_ERROR, error, message, command)
+        }
       } catch (error) {
         this.client.emit(Events.COMMAND_ERROR, message, command, error)
       }

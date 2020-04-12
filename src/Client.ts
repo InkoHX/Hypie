@@ -3,7 +3,7 @@ import { Logger } from 'parrot-logger'
 import path from 'path'
 import { Connection, createConnection, getConnectionOptions } from 'typeorm'
 
-import { CommandRegistry, EventRegistry, LanguageRegistry, InhibitorRegistry } from './registries'
+import { CommandRegistry, EventRegistry, LanguageRegistry, InhibitorRegistry, FinalizerRegistry } from './registries'
 
 declare module 'discord.js' {
   interface Client {
@@ -26,6 +26,8 @@ export class Client extends DjsClient {
 
   public readonly inhibitors: InhibitorRegistry
 
+  public readonly finalizers: FinalizerRegistry
+
   public readonly path: string
 
   public readonly prefix: string
@@ -42,6 +44,8 @@ export class Client extends DjsClient {
     this.languages = new LanguageRegistry(this)
 
     this.inhibitors = new InhibitorRegistry(this)
+
+    this.finalizers = new FinalizerRegistry(this)
 
     this.logger = new Logger({
       file: {
@@ -62,7 +66,8 @@ export class Client extends DjsClient {
       this.events.registerAll(),
       this.commands.registerAll(),
       this.languages.registerAll(),
-      this.inhibitors.registerAll()
+      this.inhibitors.registerAll(),
+      this.finalizers.registerAll()
     ])
       .catch(error => this.logger.error(error))
 
