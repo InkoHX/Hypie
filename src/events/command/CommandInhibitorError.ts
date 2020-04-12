@@ -8,12 +8,14 @@ export default class extends Event {
   public constructor (client: Client) {
     super(client, {
       name: 'commandInhibitor',
-      eventName: Events.COMMAND_INHIBITOR
+      eventName: Events.COMMAND_INHIBITOR_ERROR
     })
   }
 
-  public async run (message: Message, error: Error): Promise<void> {
+  public async run (error: unknown, message: Message): Promise<void> {
     try {
+      if (!(error instanceof Error)) throw error
+
       await message.reply(error.message)
     } catch (error) {
       this.client.logger.error(error)

@@ -10,12 +10,17 @@ export default class CommandError extends Event {
     })
   }
 
-  public async run (message: Message, command: Command, error: Error): Promise<void> {
-    this.client.logger.error(error)
+  public async run (error: unknown, message: Message, command: Command): Promise<void> {
+    try {
+      if (!(error instanceof Error)) throw error
 
-    const language = await message.getLanguageData()
+      const language = await message.getLanguageData()
 
-    message.channel.send(language.error.command.errorEmbed(command, error))
-      .catch(error => this.client.logger.error(error))
+      await message.channel.send(language.error.command.errorEmbed(command, error))
+      this.client.logger.error(error)
+    } catch (error) {
+      this.client.logger.error(error)
+      process.exit(1)
+    }
   }
 }

@@ -41,10 +41,10 @@ export default class CommandHandler extends Event {
           this.client.emit(Events.COMMAND_FINALIZER_ERROR, error, message, command)
         }
       } catch (error) {
-        this.client.emit(Events.COMMAND_ERROR, message, command, error)
+        this.client.emit(Events.COMMAND_ERROR, error, message, command)
       }
     } catch (error) {
-      this.client.emit(Events.COMMAND_INHIBITOR, message, error)
+      this.client.emit(Events.COMMAND_INHIBITOR_ERROR, error, message, command)
     }
   }
 
