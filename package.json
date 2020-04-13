@@ -28,7 +28,7 @@
     "@types/deepmerge": "^2.2.0",
     "@types/glob": "^7.1.1",
     "@types/node": "^13.11.1",
-    "@types/ws": "^7.2.3",
+    "@types/ws": "^7.2.4",
     "@types/yargs-parser": "^15.0.0",
     "@typescript-eslint/eslint-plugin": "^2.27.0",
     "@typescript-eslint/parser": "^2.27.0",
