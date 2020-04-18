@@ -30,24 +30,26 @@ export function Arguments (target: Object, propKey: string, desc: PropertyDescri
       const language = await message.getLanguageData()
 
       try {
-        paramIndex.forEach((value) => {
+        for (const value of paramIndex) {
           const type = value.type
           const mode = value.mode
           const index = value.index
           const arg = args[index]
 
+          const resolved = await Promise.resolve(resolvers[type](arg, index, language, message))
+
           switch (mode) {
             case 'required':
               if (typeof arg !== 'string') throw new Error(language.error.command.missingArguments(index))
 
-              args[index] = resolvers[type](arg, index, language, message)
+              args[index] = resolved
               break
             case 'optional':
               if (!arg) return
 
-              args[index] = resolvers[type](arg, index, language, message)
+              args[index] = resolved
           }
-        })
+        }
 
         return originalMethod.apply(this, args)
       } catch (error) {

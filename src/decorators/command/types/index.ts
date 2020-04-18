@@ -11,7 +11,7 @@ import toUser from './User'
 import toTextChannel from './TextChannel'
 import toDMChannel from './DMChannel'
 
-export type ArgumentResolverFunction = (data: unknown, paramIndex: number, language: LanguageData, message: Message) => unknown
+export type ArgumentResolverFunction = (data: unknown, paramIndex: number, language: LanguageData, message: Message) => Promise<unknown> | unknown
 
 export type ArgumentType = 'string' |
 'number' |
