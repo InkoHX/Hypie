@@ -2,13 +2,14 @@ import { DMChannel } from 'discord.js'
 
 import { ArgumentResolverFunction } from '.'
 
-const toDMChannel: ArgumentResolverFunction = (data, paramIndex, language, message): DMChannel => {
+const toDMChannel: ArgumentResolverFunction = async (data, paramIndex, language, message): Promise<DMChannel> => {
   const client = message.client
-  const dmChannel = client.channels.resolve(String(data))
+  const channel = await client.channels.fetch(String(data))
+    .catch(() => null)
 
-  if (!dmChannel || !(dmChannel instanceof DMChannel)) throw new Error(language.error.resolver.dmChannel(paramIndex))
+  if (!channel || !(channel instanceof DMChannel)) throw new Error(language.error.resolver.dmChannel(paramIndex))
 
-  return dmChannel
+  return channel
 }
 
 export default toDMChannel
