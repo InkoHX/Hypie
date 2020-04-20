@@ -8,7 +8,7 @@ import { CommandRegistry, EventRegistry, FinalizerRegistry, InhibitorRegistry, L
 
 interface HypieEvents extends ClientEvents {
   commandError: [unknown, Message, Command],
-  commandMissingArgs: [Message, Error],
+  commandMissingArgs: [Error, Message],
   commandInhibitorError: [unknown, Message, Command],
   commandFinalizerError: [unknown, Message, Command]
 }

@@ -53,7 +53,7 @@ export function Arguments (target: Object, propKey: string, desc: PropertyDescri
 
         return originalMethod.apply(this, args)
       } catch (error) {
-        message.client.emit(Events.COMMAND_MISSING_ARGS, message, error)
+        message.client.emit(Events.COMMAND_MISSING_ARGS, error, message)
       }
     }
   }

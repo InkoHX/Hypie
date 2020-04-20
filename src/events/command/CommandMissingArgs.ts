@@ -10,7 +10,7 @@ export default class CommandMissingArgs extends Event {
     })
   }
 
-  public run (message: Message, error: Error): void {
+  public run (error: Error, message: Message): void {
     message.reply(error.message)
       .catch(error => this.client.logger.error(error))
   }
