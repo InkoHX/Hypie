@@ -1,9 +1,17 @@
-import { Client as DjsClient, ClientOptions } from 'discord.js'
+import { Client as DjsClient, ClientEvents, ClientOptions, Message } from 'discord.js'
 import { Logger } from 'parrot-logger'
 import path from 'path'
 import { Connection, createConnection, getConnectionOptions } from 'typeorm'
 
-import { CommandRegistry, EventRegistry, LanguageRegistry, InhibitorRegistry, FinalizerRegistry } from './registries'
+import { Command } from '.'
+import { CommandRegistry, EventRegistry, FinalizerRegistry, InhibitorRegistry, LanguageRegistry } from './registries'
+
+interface HypieEvents extends ClientEvents {
+  commandError: [unknown, Message, Command],
+  commandMissingArgs: [Message, Error],
+  commandInhibitorError: [unknown, Message, Command],
+  commandFinalizerError: [unknown, Message, Command]
+}
 
 declare module 'discord.js' {
   interface Client {
@@ -14,7 +22,9 @@ declare module 'discord.js' {
     readonly finalizer: FinalizerRegistry,
     readonly path: string,
     readonly prefix: string,
-    readonly logger: Logger
+    readonly logger: Logger,
+
+    emit<K extends keyof HypieEvents>(event: K, ...args: HypieEvents[K]): boolean
   }
 }
 
