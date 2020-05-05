@@ -27,7 +27,7 @@
     "@inkohx/eslint-config-codestyle": "^2.1.1",
     "@types/deepmerge": "^2.2.0",
     "@types/glob": "^7.1.1",
-    "@types/node": "^13.13.4",
+    "@types/node": "^13.13.5",
     "@types/ws": "^7.2.4",
     "@types/yargs-parser": "^15.0.0",
     "@typescript-eslint/eslint-plugin": "^2.30.0",
