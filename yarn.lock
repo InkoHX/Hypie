@@ -32,10 +32,10 @@
     combined-stream "^1.0.8"
     mime-types "^2.1.12"
 
-"@inkohx/eslint-config-codestyle@^2.1.1":
-  version "2.1.1"
-  resolved "https://registry.yarnpkg.com/@inkohx/eslint-config-codestyle/-/eslint-config-codestyle-2.1.1.tgz#33ceb5d912b852bd0cc889ec243230c4891ec7e5"
-  integrity sha512-HMwzQYGFZTwNo69PYrmIhIKyn2V3spf6Y+DhG+RQg35w6OaY2fGdqM0oWuhZHFhgA16IDkifbJyeORn51rBaNQ==
+"@inkohx/eslint-config-codestyle@^2.1.2":
+  version "2.1.2"
+  resolved "https://registry.yarnpkg.com/@inkohx/eslint-config-codestyle/-/eslint-config-codestyle-2.1.2.tgz#5581415067139646d8017f4e218c40c057683ff2"
+  integrity sha512-ZWZF+3gdsW0Jo7UnZ6jxa/YdWT9TitoboFNIGwOan6ND+1MtXQ8o6OJ5YWniAF2yYfJaXnbBpHq8TWrbbj5UmQ==
 
 "@types/color-name@^1.1.1":
   version "1.1.1"
