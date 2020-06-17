@@ -16,7 +16,7 @@
     "discord.js": "^12.2.0",
     "dotenv-safe": "^8.2.0",
     "glob": "^7.1.6",
-    "parrot-logger": "^0.0.3",
+    "parrot-logger": "^0.0.5",
     "reflect-metadata": "^0.1.13",
     "sqlite3": "^4.2.0",
     "typeorm": "^0.2.25",

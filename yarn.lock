@@ -1308,10 +1308,10 @@ parent-require@^1.0.0:
   resolved "https://registry.yarnpkg.com/parent-require/-/parent-require-1.0.0.tgz#746a167638083a860b0eef6732cb27ed46c32977"
   integrity sha1-dGoWdjgIOoYLDu9nMssn7UbDKXc=
 
-parrot-logger@^0.0.3:
-  version "0.0.3"
-  resolved "https://registry.yarnpkg.com/parrot-logger/-/parrot-logger-0.0.3.tgz#ad6e382c200f6088c1f760649b2987b48e7cc6f6"
-  integrity sha512-EUMC3symIw9UqGyDqm1VBXIHGF4Mc7EmihUMAGKgwhPG6JVQMQ3iBNhZqaQJhM1Zv1UOfm7/GcG2F7D4dglS2g==
+parrot-logger@^0.0.5:
+  version "0.0.5"
+  resolved "https://registry.yarnpkg.com/parrot-logger/-/parrot-logger-0.0.5.tgz#46525ebfe7a6af6a956579f66fe5d16f90eed24a"
+  integrity sha512-dm8ubjz9rlGbzHy3ireATooh5VFK98Ek/xR8vRjkGHDw5GIQ5AaAwUsVjQdJVIZ4bqCULrazx+zHiDNXyn57cQ==
   dependencies:
     chalk "^3.0.0"
     dayjs "^1.8.20"
