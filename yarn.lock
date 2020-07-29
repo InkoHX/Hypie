@@ -406,6 +406,14 @@ chalk@^3.0.0:
     ansi-styles "^4.1.0"
     supports-color "^7.1.0"
 
+chalk@^4.1.0:
+  version "4.1.0"
+  resolved "https://registry.yarnpkg.com/chalk/-/chalk-4.1.0.tgz#4e14870a618d9e2edd97dd8345fd9d9dc315646a"
+  integrity sha512-qwx12AxXe2Q5xQ43Ac//I6v5aXTipYrSESdOgzrN+9XjgEpyjpKuvSGaN4qE93f7TQTlerQQ8S+EQ0EyDoVL1A==
+  dependencies:
+    ansi-styles "^4.1.0"
+    supports-color "^7.1.0"
+
 chardet@^0.7.0:
   version "0.7.0"
   resolved "https://registry.yarnpkg.com/chardet/-/chardet-0.7.0.tgz#90094849f0937f2eedc2425d0d28a9e5f0cbad9e"
@@ -1535,12 +1543,12 @@ parent-require@^1.0.0:
   resolved "https://registry.yarnpkg.com/parent-require/-/parent-require-1.0.0.tgz#746a167638083a860b0eef6732cb27ed46c32977"
   integrity sha1-dGoWdjgIOoYLDu9nMssn7UbDKXc=
 
-parrot-logger@^0.0.3:
-  version "0.0.3"
-  resolved "https://registry.yarnpkg.com/parrot-logger/-/parrot-logger-0.0.3.tgz#ad6e382c200f6088c1f760649b2987b48e7cc6f6"
-  integrity sha512-EUMC3symIw9UqGyDqm1VBXIHGF4Mc7EmihUMAGKgwhPG6JVQMQ3iBNhZqaQJhM1Zv1UOfm7/GcG2F7D4dglS2g==
+parrot-logger@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/parrot-logger/-/parrot-logger-1.0.0.tgz#f72728ef65734b0d7c25ac99835472199c54f1d5"
+  integrity sha512-VWdVdsVJ6Z1hY7wTsFdLJo1I4ypaDXaYhOcp2TYJQ/eI15+ySUMbMPHfjkP63rlV5lRQWOm/h5ZfotvMCEeF9g==
   dependencies:
-    chalk "^3.0.0"
+    chalk "^4.1.0"
     dayjs "^1.8.20"
     deepmerge "^4.2.2"
     utility-types "^3.10.0"
