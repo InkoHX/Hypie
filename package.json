@@ -21,7 +21,7 @@
     "sqlite3": "^5.0.0",
     "typeorm": "^0.2.25",
     "utility-types": "^3.10.0",
-    "yargs-parser": "^18.1.3"
+    "yargs-parser": "^19.0.0"
   },
   "devDependencies": {
     "@inkohx/eslint-config-codestyle": "^2.1.2",
